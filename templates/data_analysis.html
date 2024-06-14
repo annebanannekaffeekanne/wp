@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Data Analysis</h1>
+    <p>The first step was to analyse the data and visualize it. So the following Images and Diagrams hopefully
+    lead to a better understanding of the given data. We start off with visualizing the representation of each class.
+    class 1 is the diagnosis "no cancer" and class -1 represents the diagnosis "cancer".</p>
+    <h2>Frequency of Classes</h2>
+    <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie Chart">
+    <p>Pie-chart of the distribution of the two classes.</p>
+    <p>after that the data needs to be normalized, so if there would be values which diverge massivly from others this
+    big values would get a higher representation in calculation. So just to be on the safe side, the dataframe is being normalized.
+    To check if that worked, the data is visualized with heatmaps. If there would be any significant differences of the values,
+    there would be a big difference in the coloration.</p>
+    <h2>Heatmap of the whole data</h2>
+    <p>The first image shows the heatmap of the whole data, which means all features.</p>
+    <img src="{{ url_for('static', filename='heatmap_train.png') }}" alt="whole training-data heatmap">
+    <h2>Heatmap of the relevant features</h2>
+    <p>The thing is, that not all features are relevant for the classification. To provide that irrelevant features have an
+    impact on the model, which could make it more likely to make errors, we select only the relevant ones. A method within the
+    algorithm does this. The following image shows a heatmap of the normalized relevant features</p>
+    <img src="{{ url_for('static', filename='heatmap_valid.png') }}" alt="relevant features heatmap">
+    <h2>Histograms of the relevant features</h2>
+    <p>To make sure we only chose the relevant features, an upper border is set, that sets the percentage of class-intersection.
+    If the intersection is below 45%, a feature is seen as relevant for further processing. The following image shows an example of
+    the distribution of such features.</p>
+    <img src="{{ url_for('static', filename='relevant_features_new.png') }}" alt="rlevant feature histograms">
+    <button onclick="navigateTogenerate()">generate</button>
+    <script>
+        function navigateTogenerate() {
+            window.location.href = 'generate';
+        }
+    </script>
+    <button onclick="navigateToresults()">Go to results</button>
+    <script>
+        function navigateToresults() {
+            window.location.href = 'results';
+        }
+    </script>
+</body>
+</html>
