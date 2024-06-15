@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Visualize Features{% endblock %}
+{% block content %}
+<h1>Visualize Features</h1>
+<div id="histograms">
+    {% for plot in plots %}
+    <img src="data:image/png;base64,{{ plot }}" alt="Histogram">
+    <br><br>
+{% endfor %}
+</div>
+
+{% endblock %}

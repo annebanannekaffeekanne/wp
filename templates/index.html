@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}General Information{% endblock %}
+{% block content %}
+<h1>Breast Cancer</h1>
+<p>&nbsp;</p>
+<h2>Knowledge</h2>
+    <p>Breast cancer caused 670 000 deaths globally in 2022.
+    Roughly half of all breast cancers occur in women with no specific risk factors other than sex and age.
+    Breast cancer was the most common cancer in women in 157 countries out of 185 in 2022.
+    Breast cancer occurs in every country in the world.
+    Approximately 0.5–1% of breast cancers occur in men.</p>
+<p>&nbsp;</p>
+    <h2>Overview</h2>
+    <p>Breast cancer is a disease in which abnormal breast cells grow out of control and form tumours. If left unchecked,
+        the tumours can spread throughout the body and become fatal. Breast cancer cells begin inside the milk ducts
+        and/or the milk-producing lobules of the breast. The earliest form (in situ) is not life-threatening and can be
+        detected in early stages. Cancer cells can spread into nearby breast tissue (invasion). This creates tumours that
+        cause lumps or thickening. Invasive cancers can spread to nearby lymph nodes or other organs (metastasize).
+        Metastasis can be life-threatening and fatal. Treatment is based on the person, the type of cancer and its spread.
+        Treatment combines surgery, radiation therapy and medications.</p>
+<p>&nbsp;</p>
+<h1>About the Project</h1>
+<p>&nbsp;</p>
+    <h2>Binary diagnostic classification system </h2>
+    <h2>for breast cancer</h2>
+    <p> The aim of this machine learning project was to develop a diagnostic tumor classification system that assigns
+        the classes “benign” and “malignant” based on a dataset. The training dataset is composed of data from 381
+        patients. The data comes from examining the breast tissue of the individuals, where the cell nuclei were
+        detected. The findings from the examination were divided into characteristics such as radius, area, concavity,
+        etc. Through calculations the characteristics were then split in the three features (maximum, minimum and mean).
+        In total, there are 10 characteristics and accordingly 30 features. These features are represented as columns
+        in the dataset. So, a row is the data of one person.</p>
+        <p>The following page shows an overview of the individual
+        patients with the corresponding diagnosis. The diagnosis -1 means 'cancer-positive', the diagnosis 1 means
+        'no cancer'. By clicking on the corresponding names you can see the exact results of the individual cell
+        examinations. You can also delete persons or change their names, ages, etc...</p>
+<p>&nbsp;</p>
+<h2>Your task</h2>
+<p>In the machine learning project the data needs to be pre-processed. For example Features which are relevant have to
+    be chosen by the program. Now you take possession of the algorithms tasks. Just follow the explanations and instructions.</p>
+<p>Have fun!</p>
+<p>&nbsp;</p>
+    <p>P.s. To get further information about breast cancer, you can click on the button 'WHO' below, where you'll find an
+        article of the WHO. </p>
+    <a href="https://www.who.int/news-room/fact-sheets/detail/breast-cancer" class="btn btn-primary">WHO</a>
+<a href="{{ url_for('patient_list') }}" class="btn btn-primary">go to patient list</a>
+
+{% endblock %}
