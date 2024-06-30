@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Add Patient{% endblock %}
+{% block content %}
+<h1>Add Patient</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" required>
+    </div>
+
+
+{% for feature, min_value in min_values.items() %}
+    <div class="form-group">
+        <label for="{{ feature }}">{{ feature }}</label>
+        <input type="text" class="form-control" id="{{ feature }}" name="{{ feature }}"
+               placeholder="Enter value that's in the range" required>
+        <small class="form-text text-muted">Value range: {{ min_value }} - {{ max_values[feature] }}</small>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a href="{{ url_for('patient_list') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

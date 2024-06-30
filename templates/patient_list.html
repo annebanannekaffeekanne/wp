@@ -4,7 +4,10 @@
 <h1>Patients</h1>
 <p>You can delete patients, edit their data or just read their informations. On the basis of what you're doing - means
     who you're deleting - you'll automatically generate a data analysis of the class distribution. To see a big difference
-from the original distribution, try to delete always the same diagnosis e.g. 1</p>
+from the original distribution, try to delete always the same diagnosis e.g. 1. It's also possible to add a patient. Once
+created you'll find this person on the last page of the patient list on the last position. If you add a patient, the last
+box is for selecting the ID. Just choose a random number.. the actual ID is added after you submitted the changes.</p>
+<a href="{{ url_for('add_patient') }}" class="btn btn-primary">Add Patient</a>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -28,6 +31,8 @@ from the original distribution, try to delete always the same diagnosis e.g. 1</
             </td>
         </tr>
         {% endfor %}
+    </tbody>
+</table>
 
 <nav aria-label="Page navigation example">
     <ul class="pagination">
@@ -44,12 +49,12 @@ from the original distribution, try to delete always the same diagnosis e.g. 1</
         </li>
     </ul>
 </nav>
-</tbody>
-</table>
+
 <button onclick="navigateTodata_analysis()">Go to data analysis</button>
-    <script>
-        function navigateTodata_analysis() {
-            window.location.href = 'data_analysis';
-        }
-    </script>
+<script>
+    function navigateTodata_analysis() {
+        window.location.href = 'data_analysis';
+    }
+</script>
+
 {% endblock %}

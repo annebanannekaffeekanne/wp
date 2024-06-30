@@ -2,11 +2,21 @@
 {% block title %}Visualize Features{% endblock %}
 {% block content %}
 <h1>Visualize Features</h1>
+<p>Here you find the histograms for the selected features. If you have added your own patient to the patient list, you
+    can easily identify him by the green bars.</p>
+<h2>Interpretation</h2>
+<p>In the given dataset, each feature column represents a specific attribute with a corresponding value for each individual.
+    The class column contains the associated diagnosis for each individual. Now, distributions of values could be separated
+    according to their classes. This assumption was made to select the relevant features. It was assumed that the clearer
+    the class border, the more meaningful a feature. Regarding the histograms of the two classes, a feature is considered
+    relevant if the overlap between the two classes is as small as possible. Although this was the assumption in this
+    project, this does not mean that all features with a particularly large class overlap may not be relevant.</p>
+<p>So now if you have a look on the results of your visualization, you can consider some features as relevant and others not.</p>
 <div id="histograms">
     {% for plot in plots %}
     <img src="data:image/png;base64,{{ plot }}" alt="Histogram">
     <br><br>
 {% endfor %}
 </div>
-
+<p>That was it with data pre-processing! Thanks for your participation in the project!</p>
 {% endblock %}
