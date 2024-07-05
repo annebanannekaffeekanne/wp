@@ -14,22 +14,20 @@ def client():
 
 
 def test_delete_patient_success(client):
-    # Mock für methods.delete_patient, um erfolgreiches Löschen zu simulieren
+    # mock for methods.delete_patient, to simulate successful deletion
     with patch('methods.delete_patient', return_value=True):
-        # GET-Anfrage an die delete-Patientenroute
+        # GET request to delete_patient-route
         response = client.get("/delete/1")
-
-        # Überprüfen, dass der Statuscode 302 ist (Redirect)
+        # check status and if redirection worked
         assert response.status_code == 302
-        # Überprüfen, dass die Weiterleitung zur Patientenliste erfolgt
         assert response.headers["Location"] == "/patients"
 
 
 def test_delete_patient_not_found(client):
-    # Mock für methods.delete_patient, um nicht gefundene Patienten zu simulieren
+    # mock for methods.delete_patient, to simulate patients which are not found
     with patch('methods.delete_patient', return_value=False):
-        # GET-Anfrage an die delete-Patientenroute für einen nicht vorhandenen Patienten
+        # GET-request to delete_patient-route for non-existing patient
         response = client.get("/delete/999")
 
-        # Überprüfen, dass der Statuscode 404 ist (Not Found)
+        # check status and if redirection worked
         assert response.status_code == 404
